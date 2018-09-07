@@ -1,0 +1,96 @@
+<?xml version= "1.0" encoding= "UTF-8" ?>
+<schema targetNamespace="http://platform.integration.oracle/blocks/adapter/fw/metadata/ldapService2"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://platform.integration.oracle/blocks/adapter/fw/metadata/ldapService2"
+            elementFormDefault="unqualified">
+  <element name="searchRequest">
+     <complexType>
+         <sequence>
+               <element name="baseDN" type="string" default="cn=U-SVC-INT,ou=Users,dc=ssoaddv,dc=th"/>
+               <element name="searchFilter" type="string" default="(objectClass=*)"/>
+         </sequence>
+     </complexType>
+  </element>
+  <element name="searchResponse">
+     <complexType>
+         <sequence>
+             <element name="entriesReturned" type="string" minOccurs="0"/>
+             <element name="referral" type="anyURI" minOccurs="0" maxOccurs="unbounded"/>
+             <element name="searchResultEntry" maxOccurs="unbounded" minOccurs="0">
+                 <complexType>
+                     <sequence>
+                       <element name="assistant" type="string"/>
+                       <element name="c" type="string"/>
+                       <element name="co" type="string"/>
+                       <element name="comment" type="string"/>
+                       <element name="company" type="string"/>
+                       <element name="countryCode" type="string"/>
+                       <element name="department" type="string"/>
+                       <element name="destinationIndicator" type="tns:multiValueAttribute"/>
+                       <element name="division" type="string"/>
+                       <element name="employeeID" type="string"/>
+                       <element name="facsimileTelephoneNumber" type="string"/>
+                       <element name="generationQualifier" type="string"/>
+                       <element name="givenName" type="string"/>
+                       <element name="homePhone" type="string"/>
+                       <element name="homePostalAddress" type="string"/>
+                       <element name="houseIdentifier" type="tns:multiValueAttribute"/>
+                       <element name="initials" type="string"/>
+                       <element name="internationalISDNNumber" type="tns:multiValueAttribute"/>
+                       <element name="ipPhone" type="string"/>
+                       <element name="l" type="string"/>
+                       <element name="mail" type="string"/>
+                       <element name="manager" type="string"/>
+                       <element name="mhsORAddress" type="tns:multiValueAttribute"/>
+                       <element name="middleName" type="string"/>
+                       <element name="mobile" type="string"/>
+                       <element name="msDS-AllowedToDelegateTo" type="tns:multiValueAttribute"/>
+                       <element name="msDS-HABSeniorityIndex" type="string"/>
+                       <element name="msDS-PhoneticCompanyName" type="string"/>
+                       <element name="msDS-PhoneticDepartment" type="string"/>
+                       <element name="msDS-PhoneticDisplayName" type="string"/>
+                       <element name="msDS-PhoneticFirstName" type="string"/>
+                       <element name="msDS-PhoneticLastName" type="string"/>
+                       <element name="msExchHouseIdentifier" type="string"/>
+                       <element name="o" type="tns:multiValueAttribute"/>
+                       <element name="otherFacsimileTelephoneNumber" type="tns:multiValueAttribute"/>
+                       <element name="otherHomePhone" type="tns:multiValueAttribute"/>
+                       <element name="otherIpPhone" type="tns:multiValueAttribute"/>
+                       <element name="otherMailbox" type="tns:multiValueAttribute"/>
+                       <element name="otherMobile" type="tns:multiValueAttribute"/>
+                       <element name="otherPager" type="tns:multiValueAttribute"/>
+                       <element name="otherTelephone" type="tns:multiValueAttribute"/>
+                       <element name="ou" type="tns:multiValueAttribute"/>
+                       <element name="pager" type="string"/>
+                       <element name="personalTitle" type="string"/>
+                       <element name="physicalDeliveryOfficeName" type="string"/>
+                       <element name="postalAddress" type="tns:multiValueAttribute"/>
+                       <element name="postalCode" type="string"/>
+                       <element name="postOfficeBox" type="tns:multiValueAttribute"/>
+                       <element name="preferredDeliveryMethod" type="tns:multiValueAttribute"/>
+                       <element name="primaryInternationalISDNNumber" type="string"/>
+                       <element name="primaryTelexNumber" type="string"/>
+                       <element name="registeredAddress" type="tns:multiValueAttribute"/>
+                       <element name="st" type="string"/>
+                       <element name="street" type="string"/>
+                       <element name="streetAddress" type="string"/>
+                       <element name="teletexTerminalIdentifier" type="tns:multiValueAttribute"/>
+                       <element name="telexNumber" type="tns:multiValueAttribute"/>
+                       <element name="thumbnailLogo" type="string"/>
+                       <element name="thumbnailPhoto" type="string"/>
+                       <element name="title" type="string"/>
+                       <element name="x121Address" type="tns:multiValueAttribute"/>
+                     </sequence>
+                     <attribute name="index" type="integer"/>
+                     <attribute name="dn" type="string"/>
+                 </complexType>
+             </element>
+         </sequence>
+     </complexType>
+  </element>
+<complexType name="multiValueAttribute">
+   <sequence>
+       <element name="value" type="string" maxOccurs="unbounded"/>
+   </sequence>
+</complexType>
+</schema>

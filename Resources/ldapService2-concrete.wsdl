@@ -1,0 +1,15 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/ldap/DEVApplication/YAYA12CTutorial/ldapService2" name="ldapService2-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="ldapService2.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/ldap/DEVApplication/YAYA12CTutorial/ldapService2"/>
+    <wsdl:binding name="search_ptt-binding" type="ldap:search_ptt" xmlns:ldap="http://xmlns.oracle.com/pcbpel/adapter/ldap/DEVApplication/YAYA12CTutorial/ldapService2">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="search">
+            <soap:operation soapAction="search"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,12 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/ldap/DEVApplication/YAYA12CTutorial/ldapLocalService" name="ldapLocalService-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="ldapLocalService.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/ldap/DEVApplication/YAYA12CTutorial/ldapLocalService"/>
+    <wsdl:binding name="add_ptt-binding" type="ldap:add_ptt" xmlns:ldap="http://xmlns.oracle.com/pcbpel/adapter/ldap/DEVApplication/YAYA12CTutorial/ldapLocalService">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="add">
+            <soap:operation soapAction="add"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

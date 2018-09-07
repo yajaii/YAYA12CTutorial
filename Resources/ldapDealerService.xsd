@@ -1,0 +1,53 @@
+<?xml version= "1.0" encoding= "UTF-8" ?>
+<schema targetNamespace="http://platform.integration.oracle/blocks/adapter/fw/metadata/ldapDealerService"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://platform.integration.oracle/blocks/adapter/fw/metadata/ldapDealerService"
+            elementFormDefault="unqualified">
+  <element name="searchRequest">
+     <complexType>
+         <sequence>
+               <element name="baseDN" type="string" default="dc=truecorp,dc=co,dc=th"/>
+               <element name="searchFilter" type="string" default="(objectClass=*)"/>
+         </sequence>
+     </complexType>
+  </element>
+  <element name="searchResponse">
+     <complexType>
+         <sequence>
+             <element name="entriesReturned" type="string" minOccurs="0"/>
+             <element name="referral" type="anyURI" minOccurs="0" maxOccurs="unbounded"/>
+             <element name="searchResultEntry" maxOccurs="unbounded" minOccurs="0">
+                 <complexType>
+                     <sequence>
+                       <element name="destinationIndicator" type="tns:multiValueAttribute"/>
+                       <element name="facsimileTelephoneNumber" type="tns:multiValueAttribute"/>
+                       <element name="internationaliSDNNumber" type="tns:multiValueAttribute"/>
+                       <element name="l" type="tns:multiValueAttribute"/>
+                       <element name="ou" type="tns:multiValueAttribute"/>
+                       <element name="physicalDeliveryOfficeName" type="tns:multiValueAttribute"/>
+                       <element name="postalAddress" type="tns:multiValueAttribute"/>
+                       <element name="postalCode" type="tns:multiValueAttribute"/>
+                       <element name="postOfficeBox" type="tns:multiValueAttribute"/>
+                       <element name="preferredDeliveryMethod" type="string"/>
+                       <element name="registeredAddress" type="tns:multiValueAttribute"/>
+                       <element name="st" type="tns:multiValueAttribute"/>
+                       <element name="street" type="tns:multiValueAttribute"/>
+                       <element name="telephoneNumber" type="tns:multiValueAttribute"/>
+                       <element name="teletexTerminalIdentifier" type="tns:multiValueAttribute"/>
+                       <element name="telexNumber" type="tns:multiValueAttribute"/>
+                       <element name="title" type="tns:multiValueAttribute"/>
+                       <element name="x121Address" type="tns:multiValueAttribute"/>
+                     </sequence>
+                     <attribute name="index" type="integer"/>
+                     <attribute name="dn" type="string"/>
+                 </complexType>
+             </element>
+         </sequence>
+     </complexType>
+  </element>
+<complexType name="multiValueAttribute">
+   <sequence>
+       <element name="value" type="string" maxOccurs="unbounded"/>
+   </sequence>
+</complexType>
+</schema>

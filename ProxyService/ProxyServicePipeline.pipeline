@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config">
+    <con:coreEntry>
+        <con:binding type="Native REST" xsi:type="con:NativeRestBindingType"/>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:flow>
+            <con:route-node name="RouteNode1">
+                <con:context/>
+                <con:actions>
+                    <con1:route>
+                        <con2:id>_ActionId-N53ebc3ce.N54f74386.0.165adda4aac.N7fbf</con2:id>
+                        <con1:service ref="YAYA12CTutorial/BusinessService/BusinessService" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:outboundTransform>
+                            <con5:routing-options xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N53ebc3ce.N54f74386.0.165adda4aac.N7f5a</con2:id>
+                                <con1:restOptions>
+                                    <con1:verb>POST</con1:verb>
+                                    <con5:accept>application/json</con5:accept>
+                                </con1:restOptions>
+                            </con5:routing-options>
+                        </con1:outboundTransform>
+                        <con1:responseTransform>
+                            <con3:log>
+                                <con2:id>_ActionId-N53ebc3ce.N54f74386.0.165adda4aac.N7f53</con2:id>
+                                <con3:logLevel>error</con3:logLevel>
+                                <con3:expr>
+                                    <con2:xqueryText>$outbound</con2:xqueryText>
+                                </con3:expr>
+                                <con3:message>[CA-OUTBOUND]</con3:message>
+                            </con3:log>
+                            <con3:log>
+                                <con2:id>_ActionId-N53ebc3ce.N54f74386.0.165adda4aac.N7f56</con2:id>
+                                <con3:logLevel>error</con3:logLevel>
+                                <con3:expr>
+                                    <con2:xqueryText>$body</con2:xqueryText>
+                                </con3:expr>
+                                <con3:message>[RESPONSE-CA]</con3:message>
+                            </con3:log>
+                        </con1:responseTransform>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://xschema.yaya12c.intdev.tit.com/ldapschema" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xschema.yaya12c.intdev.tit.com/ldapschema">
+
+    <complexType name="LDAPRequest">
+    	<sequence>
+    		<element name="username" type="string"></element>
+    		<element name="password" type="string"></element>
+    		<element name="saleCode" type="string"></element>
+    	</sequence>
+    </complexType>
+</schema>
